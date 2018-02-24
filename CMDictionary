@@ -1,0 +1,25 @@
+import difflib as dfl
+import json
+
+def wordMeaning():
+    while True:
+        word = input('Enter a word to get the meaning or type -q to quit: ')
+        
+        if word == '-q':
+            break
+            
+        if word in data.keys():
+            print('------------------------')
+            for m in data[word]:
+                print('-' + m)
+            print('------------------------')
+            
+        elif len(dfl.get_close_matches(word,data.keys())) > 0:
+            print('Did you mean'+' '+dfl.get_close_matches(word,data.keys())[0]+'?')
+            
+        else:
+            print("The word doesn't exist, please try again")
+            
+            
+if __name__ == "__main__":
+   wordMeaning()
